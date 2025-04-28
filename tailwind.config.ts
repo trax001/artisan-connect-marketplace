@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,17 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// ArtisanConnect Custom Colors
+				artisan: {
+					'earth': '#8B4513',
+					'gold': '#DAA520',
+					'clay': '#B87333',
+					'forest': '#2F4F4F',
+					'sand': '#F5DEB3',
+					'terracotta': '#CD5C5C',
+					'olive': '#556B2F',
+					'sienna': '#A0522D'
 				}
 			},
 			borderRadius: {
@@ -84,11 +96,24 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 1s ease-out'
+			},
+			backgroundImage: {
+				'hero-pattern': "url('/hero-bg.jpg')",
+				'pattern-light': "url('/pattern-light.png')"
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				display: ['Montserrat', 'sans-serif']
 			}
 		}
 	},
