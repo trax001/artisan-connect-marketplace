@@ -12,7 +12,7 @@ const initialCartItems = [
   {
     id: '1',
     name: 'Hand-woven Bamboo Basket',
-    price: 45.99,
+    price: 25000,
     image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9',
     artisan: 'Acha Marie',
     quantity: 1,
@@ -20,7 +20,7 @@ const initialCartItems = [
   {
     id: '3',
     name: 'Traditional Indigo Dyed Fabric',
-    price: 79.50,
+    price: 40000,
     image: 'https://images.unsplash.com/photo-1493962853295-0fd70327578a',
     artisan: 'Beatrice Fon',
     quantity: 2,
@@ -31,14 +31,26 @@ const shippingOptions = [
   {
     id: 'standard',
     name: 'Standard Shipping',
-    price: 12.00,
+    price: 2500,
     description: '7-14 business days',
   },
   {
     id: 'express',
     name: 'Express Shipping',
-    price: 25.00,
+    price: 5000,
     description: '3-5 business days',
+  },
+  {
+    id: 'sameday',
+    name: 'Same Day Delivery',
+    price: 10000,
+    description: 'Same day delivery (order before 12pm)',
+  },
+  {
+    id: 'pickup',
+    name: 'Local Pickup',
+    price: 0,
+    description: 'Pickup at store in Bamenda',
   },
 ];
 
@@ -127,7 +139,7 @@ const Cart = () => {
                     
                     <div className="md:col-span-2 text-center md:text-center">
                       <div className="md:hidden text-sm text-muted-foreground mb-1">Price</div>
-                      ${item.price.toFixed(2)}
+                      {item.price.toLocaleString()} FCFA
                     </div>
                     
                     <div className="md:col-span-3 flex items-center justify-center">
@@ -157,7 +169,7 @@ const Cart = () => {
                     
                     <div className="md:col-span-1 text-right md:text-center">
                       <div className="md:hidden text-sm text-muted-foreground mb-1">Total</div>
-                      ${(item.price * item.quantity).toFixed(2)}
+                      {(item.price * item.quantity).toLocaleString()} FCFA
                     </div>
                     
                     <div className="hidden md:block md:col-span-1 text-center">
@@ -183,7 +195,7 @@ const Cart = () => {
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal</span>
-                  <span>${subtotal.toFixed(2)}</span>
+                  <span>{subtotal.toLocaleString()} FCFA</span>
                 </div>
                 
                 <div className="pt-4 border-t border-border">
@@ -195,7 +207,7 @@ const Cart = () => {
                         <Label htmlFor={`shipping-${option.id}`} className="flex-grow">
                           <div className="flex justify-between items-center">
                             <span>{option.name}</span>
-                            <span>${option.price.toFixed(2)}</span>
+                            <span>{option.price.toLocaleString()} FCFA</span>
                           </div>
                           <span className="text-xs text-muted-foreground">{option.description}</span>
                         </Label>
@@ -206,7 +218,7 @@ const Cart = () => {
                 
                 <div className="pt-4 border-t border-border flex justify-between font-semibold text-lg">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>{total.toLocaleString()} FCFA</span>
                 </div>
               </div>
               

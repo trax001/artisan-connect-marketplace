@@ -47,7 +47,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </CardContent>
       <CardFooter className="px-4 pb-4 pt-0 flex items-center justify-between mt-auto">
         <p className="font-semibold text-lg">
-          ${price.toFixed(2)}
+          {price.toLocaleString()} FCFA
         </p>
         <Button
           variant="outline"
