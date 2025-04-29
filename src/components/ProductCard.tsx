@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ProductCardProps {
   id: string;
@@ -22,6 +23,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
   artisan,
   region,
 }) => {
+  const { t } = useLanguage();
+  
   return (
     <Card className="rounded-lg overflow-hidden border border-muted transition-all duration-300 hover:shadow-md h-full flex flex-col">
       <Link to={`/product/${id}`} className="block overflow-hidden">
@@ -53,9 +56,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
           variant="outline"
           size="icon"
           className="rounded-full hover:bg-artisan-clay hover:text-white border-artisan-clay text-artisan-clay"
+          title={t('addToCart')}
         >
           <ShoppingCart className="h-4 w-4" />
-          <span className="sr-only">Add to cart</span>
+          <span className="sr-only">{t('addToCart')}</span>
         </Button>
       </CardFooter>
     </Card>

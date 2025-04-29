@@ -1,57 +1,17 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ShoppingCart, Globe, Search, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<'en' | 'fr'>(() => {
-    // Check if there's a language preference stored in localStorage
-    const storedLanguage = localStorage.getItem('language');
-    return (storedLanguage === 'fr' ? 'fr' : 'en') as 'en' | 'fr';
-  });
-
-  useEffect(() => {
-    // Store language preference in localStorage when it changes
-    localStorage.setItem('language', language);
-    // Dispatch event to notify other components
-    window.dispatchEvent(new StorageEvent('storage', { key: 'language', newValue: language }));
-  }, [language]);
+  const { language, setLanguage, t } = useLanguage();
 
   const toggleLanguage = () => {
-    setLanguage(prevLang => prevLang === 'en' ? 'fr' : 'en');
+    setLanguage(language === 'en' ? 'fr' : 'en');
   };
-
-  // Navigation menu translations
-  const translations = {
-    en: {
-      home: 'Home',
-      shop: 'Shop',
-      artisans: 'Artisans',
-      blog: 'Blog',
-      about: 'About',
-      contact: 'Contact',
-      account: 'Account',
-      search: 'Search',
-      cart: 'Cart',
-      language: 'Language'
-    },
-    fr: {
-      home: 'Accueil',
-      shop: 'Boutique',
-      artisans: 'Artisans',
-      blog: 'Blog',
-      about: 'À propos',
-      contact: 'Contact',
-      account: 'Compte',
-      search: 'Rechercher',
-      cart: 'Panier',
-      language: 'Langue'
-    }
-  };
-  
-  const t = translations[language];
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-artisan-sand shadow-sm">
@@ -67,22 +27,22 @@ const Navigation = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
             <Link to="/" className="text-artisan-earth hover:text-artisan-clay font-medium">
-              {t.home}
+              {t('home')}
             </Link>
             <Link to="/shop" className="text-artisan-earth hover:text-artisan-clay font-medium">
-              {t.shop}
+              {t('shop')}
             </Link>
             <Link to="/artisans" className="text-artisan-earth hover:text-artisan-clay font-medium">
-              {t.artisans}
+              {t('artisans')}
             </Link>
             <Link to="/blog" className="text-artisan-earth hover:text-artisan-clay font-medium">
-              {t.blog}
+              {t('blog')}
             </Link>
             <Link to="/about" className="text-artisan-earth hover:text-artisan-clay font-medium">
-              {t.about}
+              {t('about')}
             </Link>
             <Link to="/contact" className="text-artisan-earth hover:text-artisan-clay font-medium">
-              {t.contact}
+              {t('contact')}
             </Link>
           </nav>
 
@@ -93,10 +53,10 @@ const Navigation = () => {
               size="icon" 
               className="text-artisan-forest hover:text-artisan-clay"
               onClick={toggleLanguage}
-              title={t.language}
+              title={t('language')}
             >
               <Globe className="h-5 w-5" />
-              <span className="sr-only">{t.language}</span>
+              <span className="sr-only">{t('language')}</span>
               <span className="ml-1 text-xs font-medium">{language.toUpperCase()}</span>
             </Button>
             
@@ -104,23 +64,23 @@ const Navigation = () => {
               variant="ghost" 
               size="icon" 
               className="text-artisan-forest hover:text-artisan-clay"
-              title={t.search}
+              title={t('search')}
             >
               <Search className="h-5 w-5" />
-              <span className="sr-only">{t.search}</span>
+              <span className="sr-only">{t('search')}</span>
             </Button>
             
-            <Link to="/account" title={t.account}>
+            <Link to="/account" title={t('account')}>
               <Button variant="ghost" size="icon" className="text-artisan-forest hover:text-artisan-clay">
                 <User className="h-5 w-5" />
-                <span className="sr-only">{t.account}</span>
+                <span className="sr-only">{t('account')}</span>
               </Button>
             </Link>
             
-            <Link to="/cart" title={t.cart}>
+            <Link to="/cart" title={t('cart')}>
               <Button variant="ghost" size="icon" className="text-artisan-forest hover:text-artisan-clay relative">
                 <ShoppingCart className="h-5 w-5" />
-                <span className="sr-only">{t.cart}</span>
+                <span className="sr-only">{t('cart')}</span>
                 <span className="absolute -top-1 -right-1 bg-artisan-clay text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                   0
                 </span>
@@ -147,49 +107,49 @@ const Navigation = () => {
                 className="text-artisan-earth hover:text-artisan-clay font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.home}
+                {t('home')}
               </Link>
               <Link 
                 to="/shop" 
                 className="text-artisan-earth hover:text-artisan-clay font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.shop}
+                {t('shop')}
               </Link>
               <Link 
                 to="/artisans" 
                 className="text-artisan-earth hover:text-artisan-clay font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.artisans}
+                {t('artisans')}
               </Link>
               <Link 
                 to="/blog" 
                 className="text-artisan-earth hover:text-artisan-clay font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.blog}
+                {t('blog')}
               </Link>
               <Link 
                 to="/about" 
                 className="text-artisan-earth hover:text-artisan-clay font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.about}
+                {t('about')}
               </Link>
               <Link 
                 to="/contact" 
                 className="text-artisan-earth hover:text-artisan-clay font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.contact}
+                {t('contact')}
               </Link>
               <Link 
                 to="/account" 
                 className="text-artisan-earth hover:text-artisan-clay font-medium py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {t.account}
+                {t('account')}
               </Link>
             </nav>
           </div>
