@@ -63,10 +63,12 @@ const Navigation = () => {
               <span className="sr-only">Search</span>
             </Button>
             
-            <Button variant="ghost" size="icon" className="text-artisan-forest hover:text-artisan-clay">
-              <User className="h-5 w-5" />
-              <span className="sr-only">Account</span>
-            </Button>
+            <Link to="/account">
+              <Button variant="ghost" size="icon" className="text-artisan-forest hover:text-artisan-clay">
+                <User className="h-5 w-5" />
+                <span className="sr-only">Account</span>
+              </Button>
+            </Link>
             
             <Link to="/cart">
               <Button variant="ghost" size="icon" className="text-artisan-forest hover:text-artisan-clay relative">
@@ -134,6 +136,13 @@ const Navigation = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {language === 'en' ? 'Contact' : 'Contact'}
+              </Link>
+              <Link 
+                to="/account" 
+                className="text-artisan-earth hover:text-artisan-clay font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {language === 'en' ? 'Account' : 'Compte'}
               </Link>
             </nav>
           </div>
