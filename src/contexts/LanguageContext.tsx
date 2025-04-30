@@ -47,6 +47,59 @@ const translations = {
     
     // Product card
     addToCart: "Add to cart",
+    
+    // Footer
+    quickLinks: "Quick Links",
+    customerSupport: "Customer Support",
+    subscribeNewsletter: "Subscribe to our Newsletter",
+    newsletterDesc: "Stay updated with new artisans, products, and cultural stories.",
+    yourEmail: "Your email address",
+    subscribe: "Subscribe",
+    allRightsReserved: "All rights reserved.",
+    
+    // About page
+    aboutTitle: "About ArtisanConnect",
+    aboutIntro: "ArtisanConnect is a platform dedicated to connecting skilled artisans from Cameroon with customers worldwide who appreciate handcrafted, authentic goods.",
+    ourMission: "Our Mission",
+    missionText: "Our mission is to preserve and promote traditional Cameroonian crafts while providing sustainable income opportunities for talented artisans. We believe in fair trade practices and ensuring that the makers behind our beautiful products receive proper compensation for their skills and creativity.",
+    ourStory: "Our Story",
+    storyText1: "ArtisanConnect began in 2023 when our founder, Elizabeth Nkongho, recognized the challenges faced by talented craftspeople in her home country of Cameroon. Despite creating beautiful, high-quality products, many artisans struggled to reach markets beyond their local communities.",
+    storyText2: "After visiting numerous villages and meeting with basket weavers, wood carvers, textile artists, and potters, Elizabeth was inspired to create a platform that would showcase their extraordinary skills to the world. ArtisanConnect was born out of a desire to bridge the gap between these gifted creators and global consumers who value authenticity, craftsmanship, and cultural heritage.",
+    ourValues: "Our Values",
+    valueAuth: "Authenticity: We celebrate and preserve traditional crafting techniques and cultural heritage.",
+    valueSust: "Sustainability: We promote environmentally friendly practices and the use of locally sourced materials.",
+    valueFair: "Fair Trade: We ensure artisans receive fair compensation for their work and skills.",
+    valueComm: "Community: We foster connections between makers and consumers, creating a global community that values craftsmanship.",
+    valueEduc: "Education: We share the stories behind the crafts, helping customers understand the cultural significance and skill involved in each piece.",
+    ourImpact: "Our Impact",
+    impactText1: "Since our founding, ArtisanConnect has worked with over 50 artisans across Cameroon, helping them reach customers in 25 countries worldwide. Through our platform, many craftspeople have been able to significantly increase their incomes, invest in their workshops, train apprentices, and contribute to their local economies.",
+    impactText2: "We're proud to play a part in preserving cultural traditions while creating sustainable livelihoods for talented individuals who might otherwise be forced to abandon their crafts in search of other employment opportunities.",
+    
+    // Contact page
+    contactTitle: "Contact Us",
+    contactIntro: "We'd love to hear from you. Whether you have questions about our artisans, products, or services, our team is here to help.",
+    email: "Email",
+    phone: "Phone",
+    address: "Address",
+    hours: "Hours",
+    name: "Name",
+    subject: "Subject",
+    message: "Message",
+    sendMessage: "Send Message",
+    messageSent: "Message sent",
+    thanksMessage: "Thank you for your message. We will get back to you soon.",
+    
+    // Footer pages
+    faqTitle: "Frequently Asked Questions",
+    faqIntro: "Find answers to commonly asked questions about ArtisanConnect, our products, and services.",
+    shippingTitle: "Shipping Policy",
+    shippingIntro: "Learn about our shipping options, delivery times, and costs for domestic and international orders.",
+    returnsTitle: "Returns & Exchanges",
+    returnsIntro: "Information about our policies regarding returns, exchanges, and refunds.",
+    privacyTitle: "Privacy Policy",
+    privacyIntro: "How we collect, use, and protect your personal information when you use our website.",
+    termsTitle: "Terms of Service",
+    termsIntro: "The rules, guidelines, and agreements you accept when using ArtisanConnect.",
   },
   fr: {
     // Navigation
@@ -84,6 +137,59 @@ const translations = {
     
     // Product card
     addToCart: "Ajouter au panier",
+    
+    // Footer
+    quickLinks: "Liens Rapides",
+    customerSupport: "Service Client",
+    subscribeNewsletter: "Abonnez-vous à notre Newsletter",
+    newsletterDesc: "Restez informé des nouveaux artisans, produits et histoires culturelles.",
+    yourEmail: "Votre adresse e-mail",
+    subscribe: "S'abonner",
+    allRightsReserved: "Tous droits réservés.",
+    
+    // About page
+    aboutTitle: "À propos d'ArtisanConnect",
+    aboutIntro: "ArtisanConnect est une plateforme dédiée à connecter les artisans qualifiés du Cameroun avec des clients du monde entier qui apprécient les produits artisanaux authentiques.",
+    ourMission: "Notre Mission",
+    missionText: "Notre mission est de préserver et de promouvoir l'artisanat traditionnel camerounais tout en offrant des opportunités de revenus durables aux artisans talentueux. Nous croyons aux pratiques du commerce équitable et veillons à ce que les créateurs de nos beaux produits reçoivent une juste rémunération pour leurs compétences et leur créativité.",
+    ourStory: "Notre Histoire",
+    storyText1: "ArtisanConnect a commencé en 2023 lorsque notre fondatrice, Elizabeth Nkongho, a reconnu les défis auxquels sont confrontés les artisans talentueux de son pays d'origine, le Cameroun. Malgré la création de produits beaux et de haute qualité, de nombreux artisans ont du mal à atteindre des marchés au-delà de leurs communautés locales.",
+    storyText2: "Après avoir visité de nombreux villages et rencontré des vanniers, sculpteurs sur bois, artistes textiles et potiers, Elizabeth a été inspirée pour créer une plateforme qui mettrait en valeur leurs compétences extraordinaires dans le monde entier. ArtisanConnect est né du désir de combler le fossé entre ces créateurs doués et les consommateurs mondiaux qui valorisent l'authenticité, l'artisanat et le patrimoine culturel.",
+    ourValues: "Nos Valeurs",
+    valueAuth: "Authenticité: Nous célébrons et préservons les techniques artisanales traditionnelles et le patrimoine culturel.",
+    valueSust: "Durabilité: Nous promouvons des pratiques respectueuses de l'environnement et l'utilisation de matériaux locaux.",
+    valueFair: "Commerce Équitable: Nous veillons à ce que les artisans reçoivent une rémunération équitable pour leur travail et leurs compétences.",
+    valueComm: "Communauté: Nous favorisons les connexions entre les créateurs et les consommateurs, créant une communauté mondiale qui valorise l'artisanat.",
+    valueEduc: "Éducation: Nous partageons les histoires derrière l'artisanat, aidant les clients à comprendre la signification culturelle et les compétences impliquées dans chaque pièce.",
+    ourImpact: "Notre Impact",
+    impactText1: "Depuis notre fondation, ArtisanConnect a travaillé avec plus de 50 artisans à travers le Cameroun, les aidant à atteindre des clients dans 25 pays du monde. Grâce à notre plateforme, de nombreux artisans ont pu augmenter considérablement leurs revenus, investir dans leurs ateliers, former des apprentis et contribuer à leurs économies locales.",
+    impactText2: "Nous sommes fiers de jouer un rôle dans la préservation des traditions culturelles tout en créant des moyens de subsistance durables pour des personnes talentueuses qui pourraient autrement être forcées d'abandonner leur artisanat à la recherche d'autres opportunités d'emploi.",
+    
+    // Contact page
+    contactTitle: "Contactez-Nous",
+    contactIntro: "Nous aimerions avoir de vos nouvelles. Que vous ayez des questions sur nos artisans, nos produits ou nos services, notre équipe est là pour vous aider.",
+    email: "Email",
+    phone: "Téléphone",
+    address: "Adresse",
+    hours: "Heures d'ouverture",
+    name: "Nom",
+    subject: "Sujet",
+    message: "Message",
+    sendMessage: "Envoyer le Message",
+    messageSent: "Message envoyé",
+    thanksMessage: "Merci pour votre message. Nous vous répondrons bientôt.",
+    
+    // Footer pages
+    faqTitle: "Foire Aux Questions",
+    faqIntro: "Trouvez des réponses aux questions fréquemment posées sur ArtisanConnect, nos produits et services.",
+    shippingTitle: "Politique d'Expédition",
+    shippingIntro: "Informez-vous sur nos options d'expédition, les délais de livraison et les coûts pour les commandes nationales et internationales.",
+    returnsTitle: "Retours & Échanges",
+    returnsIntro: "Informations sur nos politiques concernant les retours, les échanges et les remboursements.",
+    privacyTitle: "Politique de Confidentialité",
+    privacyIntro: "Comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez notre site web.",
+    termsTitle: "Conditions d'Utilisation",
+    termsIntro: "Les règles, directives et accords que vous acceptez lorsque vous utilisez ArtisanConnect.",
   }
 };
 
