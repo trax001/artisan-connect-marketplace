@@ -1,8 +1,11 @@
 
 import React from 'react';
 import ArtisanCard from '@/components/ArtisanCard';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Artisans = () => {
+  const { t } = useLanguage();
+  
   // This would be fetched from an API in a real app
   const artisans = [
     {
@@ -41,9 +44,9 @@ const Artisans = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-3xl font-semibold mb-10">Our Artisans</h1>
+      <h1 className="text-3xl font-semibold mb-10">{t('ourArtisans')}</h1>
       <p className="mb-8 text-lg max-w-3xl">
-        Meet the talented craftspeople behind our beautiful products. Each artisan brings years of experience and cultural heritage to their work.
+        {t('artisansIntro')}
       </p>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

@@ -1,58 +1,46 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-interface HeroSectionProps {
-  title: string;
-  subtitle: string;
-  ctaText: string;
-  ctaLink: string;
-  backgroundImage: string;
-}
-
-const HeroSection: React.FC<HeroSectionProps> = ({
-  title,
-  subtitle,
-  ctaText,
-  ctaLink,
-  backgroundImage,
-}) => {
+const HeroSection = () => {
+  const { t } = useLanguage();
+  
   return (
-    <section 
-      className="relative min-h-[70vh] flex items-center"
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-    >
-      <div className="absolute inset-0 bg-black/30" />
-      <div className="container mx-auto px-4 py-16 relative z-10 text-white">
-        <div className="max-w-2xl">
-          <h1 className="mb-6">{title}</h1>
-          <p className="text-xl mb-8 opacity-90">{subtitle}</p>
-          <div className="flex flex-wrap gap-4">
-            <Button
-              asChild
-              className="bg-artisan-clay hover:bg-artisan-clay/90 text-white btn-hover-effect"
-              size="lg"
-            >
-              <Link to={ctaLink}>{ctaText}</Link>
-            </Button>
-            
-            <Button
-              asChild
-              variant="outline"
-              className="border-white text-white hover:bg-white/20 btn-hover-effect"
-              size="lg"
-            >
-              <Link to="/join-as-artisan">Join as Artisan</Link>
-            </Button>
+    <div className="relative bg-artisan-earth text-white">
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-artisan-earth to-artisan-earth/70"></div>
+      <div className="relative z-10 container mx-auto px-4 py-20 lg:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+              {t('heroTitle')}
+            </h1>
+            <p className="text-xl lg:text-2xl mb-8 max-w-xl">
+              {t('heroSubtitle')}
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <Link to="/shop" className="bg-artisan-clay hover:bg-artisan-clay/90 text-white px-8 py-3 rounded-md font-medium">
+                {t('exploreShop')}
+              </Link>
+              <Link to="/artisans" className="bg-white hover:bg-gray-100 text-artisan-earth px-8 py-3 rounded-md font-medium">
+                {t('meetArtisans')}
+              </Link>
+            </div>
+          </div>
+          <div className="hidden lg:block">
+            <div className="relative">
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-artisan-clay rounded-full opacity-20"></div>
+              <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-artisan-clay rounded-full opacity-20"></div>
+              <img 
+                src="https://images.unsplash.com/photo-1618160702438-9b02ab6515c9" 
+                alt={t('heroImageAlt')}
+                className="rounded-lg relative z-10 w-full"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

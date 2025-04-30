@@ -24,12 +24,56 @@ const translations = {
     cart: 'Cart',
     language: 'Language',
     
+    // Home page
+    heroTitle: 'Discover Authentic Cameroonian Craftsmanship',
+    heroSubtitle: 'Supporting local artisans while bringing unique handcrafted treasures to your home',
+    exploreShop: 'Explore Shop',
+    meetArtisans: 'Meet Artisans',
+    heroImageAlt: 'Handcrafted basket from Cameroon',
+    featuredProducts: 'Featured Products',
+    productAlt: 'Handcrafted product from Cameroon',
+    basketTitle: 'Hand-woven Bamboo Basket',
+    basketDesc: 'Traditional basket handcrafted by skilled artisans',
+    maskTitle: 'Carved Wooden Mask',
+    maskDesc: 'Authentic ceremonial mask with cultural significance',
+    fabricTitle: 'Indigo Dyed Fabric',
+    fabricDesc: 'Handmade textile using traditional dyeing methods',
+    jewelryTitle: 'Beaded Necklace',
+    jewelryDesc: 'Intricate beadwork from Northwestern artisans',
+    viewDetails: 'View Details',
+    featuredArtisans: 'Featured Artisans',
+    artisanAlt: 'Portrait of an artisan from Cameroon',
+    basketWeaver: 'Basket Weaver',
+    woodCarver: 'Wood Carver',
+    textileArtist: 'Textile Artist',
+    viewProfile: 'View Profile',
+    culturalHeritage: 'Preserving Cultural Heritage',
+    culturalDesc1: 'Each product tells a story of tradition and skill passed down through generations of Cameroonian artisans.',
+    culturalDesc2: 'By supporting these craftspeople, you help preserve invaluable cultural practices and provide sustainable livelihoods.',
+    culturalAlt: 'Artisan working on traditional craft',
+    learnMore: 'Learn More',
+    
+    // Product card
+    addToCart: 'Add to cart',
+    product: 'product',
+    products: 'products',
+    
+    // Footer
+    footerTagline: 'Empowering rural artisans in Cameroon by connecting them to global markets and preserving cultural craftsmanship.',
+    quickLinks: 'Quick Links',
+    customerSupport: 'Customer Support',
+    subscribeNewsletter: 'Subscribe to our Newsletter',
+    newsletterDesc: 'Stay updated with new artisans, products, and cultural stories.',
+    yourEmail: 'Your email address',
+    subscribe: 'Subscribe',
+    allRightsReserved: 'All rights reserved.',
+    faq: 'FAQ',
+    
     // Shop page
     title: "Explore Handcrafted Treasures",
     subtitle: "Discover unique artisanal products from Cameroon's skilled craftspeople, each item telling a story of cultural heritage and exceptional skill.",
     filters: "Filters",
     showing: "Showing",
-    products: "products",
     searchPlaceholder: "Search products...",
     sortBy: "Sort by",
     featured: "Featured",
@@ -44,18 +88,6 @@ const translations = {
     noProductsMatch: "No products match your filters",
     adjustSearch: "Try adjusting your search or filter criteria",
     resetAllFilters: "Reset All Filters",
-    
-    // Product card
-    addToCart: "Add to cart",
-    
-    // Footer
-    quickLinks: "Quick Links",
-    customerSupport: "Customer Support",
-    subscribeNewsletter: "Subscribe to our Newsletter",
-    newsletterDesc: "Stay updated with new artisans, products, and cultural stories.",
-    yourEmail: "Your email address",
-    subscribe: "Subscribe",
-    allRightsReserved: "All rights reserved.",
     
     // About page
     aboutTitle: "About ArtisanConnect",
@@ -100,6 +132,10 @@ const translations = {
     privacyIntro: "How we collect, use, and protect your personal information when you use our website.",
     termsTitle: "Terms of Service",
     termsIntro: "The rules, guidelines, and agreements you accept when using ArtisanConnect.",
+
+    // Artisans page
+    ourArtisans: "Our Artisans",
+    artisansIntro: "Meet the talented craftspeople behind our beautiful products. Each artisan brings years of experience and cultural heritage to their work."
   },
   fr: {
     // Navigation
@@ -114,12 +150,56 @@ const translations = {
     cart: 'Panier',
     language: 'Langue',
     
+    // Home page
+    heroTitle: 'Découvrez l\'Artisanat Authentique du Cameroun',
+    heroSubtitle: 'Soutenir les artisans locaux tout en apportant des trésors uniques faits à la main chez vous',
+    exploreShop: 'Explorer la Boutique',
+    meetArtisans: 'Rencontrer les Artisans',
+    heroImageAlt: 'Panier artisanal du Cameroun',
+    featuredProducts: 'Produits en Vedette',
+    productAlt: 'Produit artisanal du Cameroun',
+    basketTitle: 'Panier en Bambou Tressé',
+    basketDesc: 'Panier traditionnel fabriqué par des artisans qualifiés',
+    maskTitle: 'Masque en Bois Sculpté',
+    maskDesc: 'Masque cérémonial authentique à signification culturelle',
+    fabricTitle: 'Tissu Teint à l\'Indigo',
+    fabricDesc: 'Textile fait main utilisant des méthodes de teinture traditionnelles',
+    jewelryTitle: 'Collier de Perles',
+    jewelryDesc: 'Travail de perles complexe d\'artisans du Nord-Ouest',
+    viewDetails: 'Voir les Détails',
+    featuredArtisans: 'Artisans en Vedette',
+    artisanAlt: 'Portrait d\'un artisan du Cameroun',
+    basketWeaver: 'Vannier',
+    woodCarver: 'Sculpteur sur Bois',
+    textileArtist: 'Artiste Textile',
+    viewProfile: 'Voir le Profil',
+    culturalHeritage: 'Préservation du Patrimoine Culturel',
+    culturalDesc1: 'Chaque produit raconte une histoire de tradition et de compétence transmise à travers des générations d\'artisans camerounais.',
+    culturalDesc2: 'En soutenant ces artisans, vous contribuez à préserver des pratiques culturelles inestimables et à fournir des moyens de subsistance durables.',
+    culturalAlt: 'Artisan travaillant sur un artisanat traditionnel',
+    learnMore: 'En Savoir Plus',
+    
+    // Product card
+    addToCart: 'Ajouter au panier',
+    product: 'produit',
+    products: 'produits',
+    
+    // Footer
+    footerTagline: 'Autonomisation des artisans ruraux au Cameroun en les connectant aux marchés mondiaux et en préservant l\'artisanat culturel.',
+    quickLinks: 'Liens Rapides',
+    customerSupport: 'Service Client',
+    subscribeNewsletter: 'Abonnez-vous à notre Newsletter',
+    newsletterDesc: 'Restez informé des nouveaux artisans, produits et histoires culturelles.',
+    yourEmail: 'Votre adresse e-mail',
+    subscribe: 'S\'abonner',
+    allRightsReserved: 'Tous droits réservés.',
+    faq: 'FAQ',
+    
     // Shop page
     title: "Explorez des Trésors Artisanaux",
     subtitle: "Découvrez des produits artisanaux uniques des artisans camerounais, chaque article raconte une histoire de patrimoine culturel et de compétence exceptionnelle.",
     filters: "Filtres",
     showing: "Affichage de",
-    products: "produits",
     searchPlaceholder: "Rechercher des produits...",
     sortBy: "Trier par",
     featured: "En vedette",
@@ -134,18 +214,6 @@ const translations = {
     noProductsMatch: "Aucun produit ne correspond à vos filtres",
     adjustSearch: "Essayez d'ajuster votre recherche ou vos critères de filtre",
     resetAllFilters: "Réinitialiser tous les filtres",
-    
-    // Product card
-    addToCart: "Ajouter au panier",
-    
-    // Footer
-    quickLinks: "Liens Rapides",
-    customerSupport: "Service Client",
-    subscribeNewsletter: "Abonnez-vous à notre Newsletter",
-    newsletterDesc: "Restez informé des nouveaux artisans, produits et histoires culturelles.",
-    yourEmail: "Votre adresse e-mail",
-    subscribe: "S'abonner",
-    allRightsReserved: "Tous droits réservés.",
     
     // About page
     aboutTitle: "À propos d'ArtisanConnect",
@@ -190,6 +258,10 @@ const translations = {
     privacyIntro: "Comment nous collectons, utilisons et protégeons vos informations personnelles lorsque vous utilisez notre site web.",
     termsTitle: "Conditions d'Utilisation",
     termsIntro: "Les règles, directives et accords que vous acceptez lorsque vous utilisez ArtisanConnect.",
+
+    // Artisans page
+    ourArtisans: "Nos Artisans",
+    artisansIntro: "Rencontrez les talentueux artisans derrière nos beaux produits. Chaque artisan apporte des années d'expérience et d'héritage culturel à son travail."
   }
 };
 

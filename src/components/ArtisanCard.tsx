@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, CardContent } from '@/components/ui/card';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Badge } from '@/components/ui/badge';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ArtisanCardProps {
   id: string;
@@ -13,32 +13,31 @@ interface ArtisanCardProps {
   productCount: number;
 }
 
-const ArtisanCard: React.FC<ArtisanCardProps> = ({
-  id,
-  name,
-  region,
-  image,
-  specialty,
-  productCount,
-}) => {
+const ArtisanCard = ({ id, name, region, image, specialty, productCount }: ArtisanCardProps) => {
+  const { t } = useLanguage();
+  
   return (
     <Link to={`/artisan/${id}`}>
-      <Card className="rounded-lg overflow-hidden border border-muted transition-all duration-300 hover:shadow-md hover:border-artisan-clay/50">
-        <CardContent className="p-6 flex flex-col items-center text-center">
-          <Avatar className="w-24 h-24 border-4 border-white shadow-md">
-            <AvatarImage src={image} alt={name} />
-            <AvatarFallback className="bg-artisan-clay text-white font-medium text-xl">
-              {name.split(' ').map(n => n[0]).join('')}
-            </AvatarFallback>
-          </Avatar>
-          <h3 className="mt-4 font-medium text-lg">{name}</h3>
-          <p className="text-sm text-muted-foreground">{region}, Cameroon</p>
-          <div className="mt-2 px-3 py-1 bg-artisan-sand/30 rounded-full text-xs">
-            {specialty}
+      <div className="bg-white rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg">
+        <div className="w-full h-48 overflow-hidden">
+          <img 
+            src={image} 
+            alt={name} 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="p-4">
+          <h3 className="font-semibold text-lg mb-1">{name}</h3>
+          <div className="flex items-center mb-3">
+            <Badge variant="outline" className="bg-muted/50">{region}</Badge>
+            <span className="mx-2">•</span>
+            <Badge variant="outline" className="bg-muted/50">{specialty}</Badge>
           </div>
-          <p className="mt-3 text-sm">{productCount} products</p>
-        </CardContent>
-      </Card>
+          <p className="text-sm text-muted-foreground">
+            {productCount} {productCount === 1 ? t('product') : t('products')}
+          </p>
+        </div>
+      </div>
     </Link>
   );
 };

@@ -21,7 +21,7 @@ const Footer = () => {
               </h3>
             </Link>
             <p className="text-sm mb-4">
-              Empowering rural artisans in Cameroon by connecting them to global markets and preserving cultural craftsmanship.
+              {t('footerTagline')}
             </p>
             <div className="flex space-x-3">
               <a href="#" className="hover:text-artisan-gold transition-colors">
@@ -66,7 +66,7 @@ const Footer = () => {
             <h4 className="text-lg font-medium mb-4 text-artisan-gold">{t('customerSupport')}</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/faq" className="hover:text-artisan-gold transition-colors">FAQ</Link>
+                <Link to="/faq" className="hover:text-artisan-gold transition-colors">{t('faq')}</Link>
               </li>
               <li>
                 <Link to="/shipping" className="hover:text-artisan-gold transition-colors">{t('shippingTitle')}</Link>
