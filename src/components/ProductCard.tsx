@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCart } from '@/contexts/CartContext';
 
 interface ProductCardProps {
   id: string;
@@ -16,6 +17,19 @@ interface ProductCardProps {
 
 const ProductCard = ({ id, name, price, image, artisan, region }: ProductCardProps) => {
   const { t } = useLanguage();
+  const { addToCart } = useCart();
+  
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addToCart({
+      id,
+      name,
+      price,
+      image,
+      artisan,
+    });
+  };
   
   return (
     <div className="group bg-white rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg">
@@ -28,7 +42,11 @@ const ProductCard = ({ id, name, price, image, artisan, region }: ProductCardPro
           />
         </div>
         <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
-          <Button size="icon" className="bg-artisan-clay hover:bg-artisan-clay/90 rounded-full w-8 h-8">
+          <Button 
+            size="icon" 
+            className="bg-artisan-clay hover:bg-artisan-clay/90 rounded-full w-8 h-8"
+            onClick={handleAddToCart}
+          >
             <ShoppingCart className="h-4 w-4" />
             <span className="sr-only">{t('addToCart')}</span>
           </Button>

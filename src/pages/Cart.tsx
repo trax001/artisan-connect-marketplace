@@ -6,28 +6,8 @@ import { Trash2, Plus, Minus, ArrowRight } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/contexts/LanguageContext';
-
-// Mocked cart data for this example
-const initialCartItems = [
-  {
-    id: '1',
-    name: 'Hand-woven Bamboo Basket',
-    price: 25000,
-    image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9',
-    artisan: 'Acha Marie',
-    quantity: 1,
-  },
-  {
-    id: '3',
-    name: 'Traditional Indigo Dyed Fabric',
-    price: 40000,
-    image: 'https://images.unsplash.com/photo-1493962853295-0fd70327578a',
-    artisan: 'Beatrice Fon',
-    quantity: 2,
-  },
-];
+import { useCart } from '@/contexts/CartContext';
 
 const shippingOptions = [
   {
@@ -57,56 +37,26 @@ const shippingOptions = [
 ];
 
 const Cart = () => {
-  const [cartItems, setCartItems] = useState(initialCartItems);
   const [shippingMethod, setShippingMethod] = useState(shippingOptions[0].id);
-  const { toast } = useToast();
   const { t } = useLanguage();
-  
-  const updateQuantity = (id: string, newQuantity: number) => {
-    if (newQuantity < 1) return;
-    
-    setCartItems(prevItems => 
-      prevItems.map(item => 
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
-    
-    toast({
-      title: t('cartUpdated'),
-      description: t('quantityUpdated'),
-    });
-  };
-  
-  const removeItem = (id: string) => {
-    setCartItems(prevItems => prevItems.filter(item => item.id !== id));
-    toast({
-      title: t('itemRemoved'),
-      description: t('itemRemovedFromCart'),
-      variant: 'destructive',
-    });
-  };
+  const { items, updateQuantity, removeFromCart, getSubtotal } = useCart();
   
   const selectedShipping = shippingOptions.find(option => option.id === shippingMethod);
   
   // Calculate totals
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const subtotal = getSubtotal();
   const shippingCost = selectedShipping?.price || 0;
   const total = subtotal + shippingCost;
   
   const handleCheckout = () => {
-    toast({
-      title: t('checkoutStarted'),
-      description: t('redirectingToCheckout'),
-    });
-    // Here you would typically integrate with a payment processor
-    console.log('Proceeding to checkout with:', { cartItems, total, shippingMethod });
+    console.log('Proceeding to checkout with:', { items, total, shippingMethod });
   };
   
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="text-3xl font-bold mb-8">{t('cart')}</h1>
       
-      {cartItems.length === 0 ? (
+      {items.length === 0 ? (
         <div className="text-center py-12">
           <h2 className="text-2xl font-medium mb-4">{t('cartEmpty')}</h2>
           <p className="text-muted-foreground mb-8">
@@ -128,7 +78,7 @@ const Cart = () => {
                 <div className="col-span-1 text-center">{t('total')}</div>
               </div>
               
-              {cartItems.map((item, idx) => (
+              {items.map((item, idx) => (
                 <div key={item.id}>
                   {idx > 0 && <Separator />}
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-4 p-4 items-center">
@@ -136,7 +86,7 @@ const Cart = () => {
                       <Button 
                         variant="ghost" 
                         size="icon"
-                        onClick={() => removeItem(item.id)}
+                        onClick={() => removeFromCart(item.id)}
                       >
                         <Trash2 className="h-5 w-5 text-muted-foreground" />
                       </Button>
@@ -199,7 +149,7 @@ const Cart = () => {
                       <Button 
                         variant="ghost" 
                         size="icon"
-                        onClick={() => removeItem(item.id)}
+                        onClick={() => removeFromCart(item.id)}
                       >
                         <Trash2 className="h-5 w-5 text-muted-foreground" />
                       </Button>

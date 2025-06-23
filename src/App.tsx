@@ -17,6 +17,7 @@ import Contact from "./pages/Contact";
 import Account from "./pages/Account";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { CartProvider } from "./contexts/CartContext";
 
 // Import the new pages
 import FAQ from "./pages/FAQ";
@@ -32,32 +33,34 @@ const App = () => (
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Routes>
-            <Route path="/" element={<Layout><Home /></Layout>} />
-            <Route path="/shop" element={<Layout><Shop /></Layout>} />
-            <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
-            <Route path="/artisans" element={<Layout><Artisans /></Layout>} />
-            <Route path="/artisan/:id" element={<Layout><ArtisanProfile /></Layout>} />
-            <Route path="/cart" element={<Layout><Cart /></Layout>} />
-            <Route path="/blog" element={<Layout><Blog /></Layout>} />
-            <Route path="/about" element={<Layout><About /></Layout>} />
-            <Route path="/contact" element={<Layout><Contact /></Layout>} />
-            <Route path="/account" element={<Layout><Account /></Layout>} />
-            <Route path="/admin" element={<Layout><AdminDashboard /></Layout>} />
-            
-            {/* New routes for footer pages */}
-            <Route path="/faq" element={<Layout><FAQ /></Layout>} />
-            <Route path="/shipping" element={<Layout><Shipping /></Layout>} />
-            <Route path="/returns" element={<Layout><Returns /></Layout>} />
-            <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
-            <Route path="/terms" element={<Layout><Terms /></Layout>} />
-            
-            <Route path="*" element={<Layout><NotFound /></Layout>} />
-          </Routes>
-        </TooltipProvider>
+        <CartProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Sonner />
+            <Routes>
+              <Route path="/" element={<Layout><Home /></Layout>} />
+              <Route path="/shop" element={<Layout><Shop /></Layout>} />
+              <Route path="/product/:id" element={<Layout><ProductDetail /></Layout>} />
+              <Route path="/artisans" element={<Layout><Artisans /></Layout>} />
+              <Route path="/artisan/:id" element={<Layout><ArtisanProfile /></Layout>} />
+              <Route path="/cart" element={<Layout><Cart /></Layout>} />
+              <Route path="/blog" element={<Layout><Blog /></Layout>} />
+              <Route path="/about" element={<Layout><About /></Layout>} />
+              <Route path="/contact" element={<Layout><Contact /></Layout>} />
+              <Route path="/account" element={<Layout><Account /></Layout>} />
+              <Route path="/admin" element={<Layout><AdminDashboard /></Layout>} />
+              
+              {/* New routes for footer pages */}
+              <Route path="/faq" element={<Layout><FAQ /></Layout>} />
+              <Route path="/shipping" element={<Layout><Shipping /></Layout>} />
+              <Route path="/returns" element={<Layout><Returns /></Layout>} />
+              <Route path="/privacy" element={<Layout><Privacy /></Layout>} />
+              <Route path="/terms" element={<Layout><Terms /></Layout>} />
+              
+              <Route path="*" element={<Layout><NotFound /></Layout>} />
+            </Routes>
+          </TooltipProvider>
+        </CartProvider>
       </LanguageProvider>
     </QueryClientProvider>
   </BrowserRouter>

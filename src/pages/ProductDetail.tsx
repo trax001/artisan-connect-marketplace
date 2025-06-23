@@ -1,20 +1,23 @@
-
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Minus, Plus, Heart } from 'lucide-react';
+import { useCart } from '@/contexts/CartContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [quantity, setQuantity] = useState(1);
+  const { addToCart } = useCart();
+  const { t } = useLanguage();
   
   // This would be fetched from an API in a real app
   const product = {
     id: id || '1',
     name: 'Hand-woven Bamboo Basket',
-    price: 45.99,
+    price: 25000,
     images: [
       'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9',
       'https://images.unsplash.com/photo-1485833077593-4278bba3f11f',
@@ -45,6 +48,18 @@ const ProductDetail = () => {
 
   const decreaseQuantity = () => {
     setQuantity(prev => (prev > 1 ? prev - 1 : 1));
+  };
+
+  const handleAddToCart = () => {
+    for (let i = 0; i < quantity; i++) {
+      addToCart({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.images[0],
+        artisan: product.artisan.name,
+      });
+    }
   };
 
   return (
@@ -112,7 +127,7 @@ const ProductDetail = () => {
             <span className="text-sm text-muted-foreground">{product.artisan.region} Region, Cameroon</span>
           </div>
           
-          <div className="text-2xl font-bold mb-6">${product.price.toFixed(2)}</div>
+          <div className="text-2xl font-bold mb-6">{product.price.toLocaleString()} FCFA</div>
           
           <Tabs defaultValue="description" className="mb-8">
             <TabsList>
@@ -173,8 +188,11 @@ const ProductDetail = () => {
               </Button>
             </div>
             
-            <Button className="flex-1 bg-artisan-clay hover:bg-artisan-clay/90">
-              Add to Cart
+            <Button 
+              className="flex-1 bg-artisan-clay hover:bg-artisan-clay/90"
+              onClick={handleAddToCart}
+            >
+              {t('addToCart')}
             </Button>
             
             <Button variant="outline" size="icon">
