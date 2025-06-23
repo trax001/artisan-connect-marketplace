@@ -1,3 +1,4 @@
+
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'fr';
@@ -24,7 +25,7 @@ const translations = {
     cartEmpty: 'Your cart is empty',
     cartEmptyDescription: 'Looks like you haven\'t added any items to your cart yet.',
     continueShopping: 'Continue Shopping',
-    product: 'Product',
+    productLabel: 'Product',
     price: 'Price',
     quantity: 'Quantity',
     total: 'Total',
@@ -83,7 +84,7 @@ const translations = {
     yourEmail: 'Your email address',
     subscribe: 'Subscribe',
     allRightsReserved: 'All rights reserved.',
-    faq: 'FAQ',
+    faqLink: 'FAQ',
     
     // Shop page
     title: "Explore Handcrafted Treasures",
@@ -151,7 +152,46 @@ const translations = {
 
     // Artisans page
     ourArtisans: "Our Artisans",
-    artisansIntro: "Meet the talented craftspeople behind our beautiful products. Each artisan brings years of experience and cultural heritage to their work."
+    artisansIntro: "Meet the talented craftspeople behind our beautiful products. Each artisan brings years of experience and cultural heritage to their work.",
+
+    // Admin Dashboard
+    adminDashboard: "Admin Dashboard",
+    overview: "Overview",
+    ordersTab: "Orders",
+    productsTab: "Products",
+    customersTab: "Customers",
+    analytics: "Analytics",
+    totalOrders: "Total Orders",
+    totalProducts: "Total Products",
+    totalCustomers: "Total Customers",
+    revenue: "Revenue",
+    recentOrders: "Recent Orders",
+    orderId: "Order ID",
+    customer: "Customer",
+    status: "Status",
+    amount: "Amount",
+    date: "Date",
+    actions: "Actions",
+    viewOrder: "View",
+    pending: "Pending",
+    processing: "Processing",
+    shipped: "Shipped",
+    delivered: "Delivered",
+    productName: "Product Name",
+    stock: "Stock",
+    categoryLabel: "Category",
+    manage: "Manage",
+    inStock: "In Stock",
+    lowStock: "Low Stock",
+    outOfStock: "Out of Stock",
+    customerName: "Customer Name",
+    orders: "Orders",
+    totalSpent: "Total Spent",
+    lastOrder: "Last Order",
+    viewCustomer: "View",
+    salesOverview: "Sales Overview",
+    topProducts: "Top Products",
+    sales: "Sales"
   },
   fr: {
     // Navigation
@@ -167,7 +207,7 @@ const translations = {
     cartEmpty: 'Votre panier est vide',
     cartEmptyDescription: 'Il semble que vous n\'ayez encore ajouté aucun article à votre panier.',
     continueShopping: 'Continuer les Achats',
-    product: 'Produit',
+    productLabel: 'Produit',
     price: 'Prix',
     quantity: 'Quantité',
     total: 'Total',
@@ -226,7 +266,7 @@ const translations = {
     yourEmail: 'Votre adresse e-mail',
     subscribe: 'S\'abonner',
     allRightsReserved: 'Tous droits réservés.',
-    faq: 'FAQ',
+    faqLink: 'FAQ',
     
     // Shop page
     title: "Explorez des Trésors Artisanaux",
@@ -294,7 +334,46 @@ const translations = {
 
     // Artisans page
     ourArtisans: "Nos Artisans",
-    artisansIntro: "Rencontrez les talentueux artisans derrière nos beaux produits. Chaque artisan apporte des années d'expérience et d'héritage culturel à son travail."
+    artisansIntro: "Rencontrez les talentueux artisans derrière nos beaux produits. Chaque artisan apporte des années d'expérience et d'héritage culturel à son travail.",
+
+    // Admin Dashboard
+    adminDashboard: "Tableau de Bord Admin",
+    overview: "Aperçu",
+    ordersTab: "Commandes",
+    productsTab: "Produits",
+    customersTab: "Clients",
+    analytics: "Analyses",
+    totalOrders: "Total des Commandes",
+    totalProducts: "Total des Produits",
+    totalCustomers: "Total des Clients",
+    revenue: "Revenus",
+    recentOrders: "Commandes Récentes",
+    orderId: "ID Commande",
+    customer: "Client",
+    status: "Statut",
+    amount: "Montant",
+    date: "Date",
+    actions: "Actions",
+    viewOrder: "Voir",
+    pending: "En Attente",
+    processing: "En Cours",
+    shipped: "Expédié",
+    delivered: "Livré",
+    productName: "Nom du Produit",
+    stock: "Stock",
+    categoryLabel: "Catégorie",
+    manage: "Gérer",
+    inStock: "En Stock",
+    lowStock: "Stock Faible",
+    outOfStock: "Rupture de Stock",
+    customerName: "Nom du Client",
+    orders: "Commandes",
+    totalSpent: "Total Dépensé",
+    lastOrder: "Dernière Commande",
+    viewCustomer: "Voir",
+    salesOverview: "Aperçu des Ventes",
+    topProducts: "Produits Populaires",
+    sales: "Ventes"
   }
 };
 

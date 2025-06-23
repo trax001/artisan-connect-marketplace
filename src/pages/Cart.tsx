@@ -122,7 +122,7 @@ const Cart = () => {
           <div className="lg:w-2/3">
             <div className="bg-white rounded-lg border border-border overflow-hidden">
               <div className="hidden md:grid md:grid-cols-12 p-4 bg-muted text-sm font-medium">
-                <div className="col-span-6">{t('product')}</div>
+                <div className="col-span-6">{t('productLabel')}</div>
                 <div className="col-span-2 text-center">{t('price')}</div>
                 <div className="col-span-3 text-center">{t('quantity')}</div>
                 <div className="col-span-1 text-center">{t('total')}</div>
