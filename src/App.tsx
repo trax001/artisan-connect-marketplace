@@ -30,10 +30,10 @@ import AdminDashboard from "./pages/AdminDashboard";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <BrowserRouter>
-    <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <CartProvider>
+  <QueryClientProvider client={queryClient}>
+    <LanguageProvider>
+      <CartProvider>
+        <BrowserRouter>
           <TooltipProvider>
             <Toaster />
             <Sonner />
@@ -60,10 +60,10 @@ const App = () => (
               <Route path="*" element={<Layout><NotFound /></Layout>} />
             </Routes>
           </TooltipProvider>
-        </CartProvider>
-      </LanguageProvider>
-    </QueryClientProvider>
-  </BrowserRouter>
+        </BrowserRouter>
+      </CartProvider>
+    </LanguageProvider>
+  </QueryClientProvider>
 );
 
 export default App;

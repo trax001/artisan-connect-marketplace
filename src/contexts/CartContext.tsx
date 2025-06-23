@@ -42,31 +42,41 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   const { t } = useLanguage();
 
   const addToCart = (product: Omit<CartItem, 'quantity'>) => {
+    console.log('Adding to cart:', product);
     setItems(prevItems => {
       const existingItem = prevItems.find(item => item.id === product.id);
       
       if (existingItem) {
-        toast({
-          title: t('itemUpdated'),
-          description: t('quantityIncreased'),
-        });
-        return prevItems.map(item =>
+        const updatedItems = prevItems.map(item =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
+        console.log('Updated cart items:', updatedItems);
+        toast({
+          title: t('itemUpdated'),
+          description: t('quantityIncreased'),
+        });
+        return updatedItems;
       } else {
+        const newItems = [...prevItems, { ...product, quantity: 1 }];
+        console.log('New cart items:', newItems);
         toast({
           title: t('itemAdded'),
           description: t('itemAddedToCart'),
         });
-        return [...prevItems, { ...product, quantity: 1 }];
+        return newItems;
       }
     });
   };
 
   const removeFromCart = (id: string) => {
-    setItems(prevItems => prevItems.filter(item => item.id !== id));
+    console.log('Removing from cart:', id);
+    setItems(prevItems => {
+      const newItems = prevItems.filter(item => item.id !== id);
+      console.log('Cart after removal:', newItems);
+      return newItems;
+    });
     toast({
       title: t('itemRemoved'),
       description: t('itemRemovedFromCart'),
@@ -77,11 +87,14 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   const updateQuantity = (id: string, quantity: number) => {
     if (quantity < 1) return;
     
-    setItems(prevItems =>
-      prevItems.map(item =>
+    console.log('Updating quantity:', id, quantity);
+    setItems(prevItems => {
+      const newItems = prevItems.map(item =>
         item.id === id ? { ...item, quantity } : item
-      )
-    );
+      );
+      console.log('Cart after quantity update:', newItems);
+      return newItems;
+    });
     
     toast({
       title: t('cartUpdated'),
@@ -90,29 +103,36 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   };
 
   const clearCart = () => {
+    console.log('Clearing cart');
     setItems([]);
   };
 
   const getTotalItems = () => {
-    return items.reduce((total, item) => total + item.quantity, 0);
+    const total = items.reduce((total, item) => total + item.quantity, 0);
+    console.log('Total items:', total);
+    return total;
   };
 
   const getSubtotal = () => {
-    return items.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const subtotal = items.reduce((total, item) => total + (item.price * item.quantity), 0);
+    console.log('Subtotal:', subtotal);
+    return subtotal;
   };
 
+  const contextValue = {
+    items,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+    clearCart,
+    getTotalItems,
+    getSubtotal,
+  };
+
+  console.log('CartProvider rendering with items:', items);
+
   return (
-    <CartContext.Provider
-      value={{
-        items,
-        addToCart,
-        removeFromCart,
-        updateQuantity,
-        clearCart,
-        getTotalItems,
-        getSubtotal,
-      }}
-    >
+    <CartContext.Provider value={contextValue}>
       {children}
     </CartContext.Provider>
   );
