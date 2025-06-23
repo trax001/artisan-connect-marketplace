@@ -6,6 +6,8 @@ import { Trash2, Plus, Minus, ArrowRight } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Mocked cart data for this example
 const initialCartItems = [
@@ -57,6 +59,8 @@ const shippingOptions = [
 const Cart = () => {
   const [cartItems, setCartItems] = useState(initialCartItems);
   const [shippingMethod, setShippingMethod] = useState(shippingOptions[0].id);
+  const { toast } = useToast();
+  const { t } = useLanguage();
   
   const updateQuantity = (id: string, newQuantity: number) => {
     if (newQuantity < 1) return;
@@ -66,10 +70,20 @@ const Cart = () => {
         item.id === id ? { ...item, quantity: newQuantity } : item
       )
     );
+    
+    toast({
+      title: t('cartUpdated'),
+      description: t('quantityUpdated'),
+    });
   };
   
   const removeItem = (id: string) => {
     setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+    toast({
+      title: t('itemRemoved'),
+      description: t('itemRemovedFromCart'),
+      variant: 'destructive',
+    });
   };
   
   const selectedShipping = shippingOptions.find(option => option.id === shippingMethod);
@@ -79,18 +93,27 @@ const Cart = () => {
   const shippingCost = selectedShipping?.price || 0;
   const total = subtotal + shippingCost;
   
+  const handleCheckout = () => {
+    toast({
+      title: t('checkoutStarted'),
+      description: t('redirectingToCheckout'),
+    });
+    // Here you would typically integrate with a payment processor
+    console.log('Proceeding to checkout with:', { cartItems, total, shippingMethod });
+  };
+  
   return (
     <div className="container mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-8">Your Cart</h1>
+      <h1 className="text-3xl font-bold mb-8">{t('cart')}</h1>
       
       {cartItems.length === 0 ? (
         <div className="text-center py-12">
-          <h2 className="text-2xl font-medium mb-4">Your cart is empty</h2>
+          <h2 className="text-2xl font-medium mb-4">{t('cartEmpty')}</h2>
           <p className="text-muted-foreground mb-8">
-            Looks like you haven't added any items to your cart yet.
+            {t('cartEmptyDescription')}
           </p>
           <Button asChild className="bg-artisan-clay hover:bg-artisan-clay/90">
-            <Link to="/shop">Continue Shopping</Link>
+            <Link to="/shop">{t('continueShopping')}</Link>
           </Button>
         </div>
       ) : (
@@ -99,10 +122,10 @@ const Cart = () => {
           <div className="lg:w-2/3">
             <div className="bg-white rounded-lg border border-border overflow-hidden">
               <div className="hidden md:grid md:grid-cols-12 p-4 bg-muted text-sm font-medium">
-                <div className="col-span-6">Product</div>
-                <div className="col-span-2 text-center">Price</div>
-                <div className="col-span-3 text-center">Quantity</div>
-                <div className="col-span-1 text-center">Total</div>
+                <div className="col-span-6">{t('product')}</div>
+                <div className="col-span-2 text-center">{t('price')}</div>
+                <div className="col-span-3 text-center">{t('quantity')}</div>
+                <div className="col-span-1 text-center">{t('total')}</div>
               </div>
               
               {cartItems.map((item, idx) => (
@@ -138,7 +161,7 @@ const Cart = () => {
                     </div>
                     
                     <div className="md:col-span-2 text-center md:text-center">
-                      <div className="md:hidden text-sm text-muted-foreground mb-1">Price</div>
+                      <div className="md:hidden text-sm text-muted-foreground mb-1">{t('price')}</div>
                       {item.price.toLocaleString()} FCFA
                     </div>
                     
@@ -168,7 +191,7 @@ const Cart = () => {
                     </div>
                     
                     <div className="md:col-span-1 text-right md:text-center">
-                      <div className="md:hidden text-sm text-muted-foreground mb-1">Total</div>
+                      <div className="md:hidden text-sm text-muted-foreground mb-1">{t('total')}</div>
                       {(item.price * item.quantity).toLocaleString()} FCFA
                     </div>
                     
@@ -190,16 +213,16 @@ const Cart = () => {
           {/* Order Summary */}
           <div className="lg:w-1/3">
             <div className="bg-white rounded-lg border border-border p-6">
-              <h2 className="text-xl font-semibold mb-6">Order Summary</h2>
+              <h2 className="text-xl font-semibold mb-6">{t('orderSummary')}</h2>
               
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">Subtotal</span>
+                  <span className="text-muted-foreground">{t('subtotal')}</span>
                   <span>{subtotal.toLocaleString()} FCFA</span>
                 </div>
                 
                 <div className="pt-4 border-t border-border">
-                  <h3 className="font-medium mb-3">Shipping Method</h3>
+                  <h3 className="font-medium mb-3">{t('shippingMethod')}</h3>
                   <RadioGroup value={shippingMethod} onValueChange={setShippingMethod}>
                     {shippingOptions.map(option => (
                       <div key={option.id} className="flex items-center space-x-2 mb-2">
@@ -217,19 +240,20 @@ const Cart = () => {
                 </div>
                 
                 <div className="pt-4 border-t border-border flex justify-between font-semibold text-lg">
-                  <span>Total</span>
+                  <span>{t('total')}</span>
                   <span>{total.toLocaleString()} FCFA</span>
                 </div>
               </div>
               
-              <Button asChild className="w-full bg-artisan-clay hover:bg-artisan-clay/90 flex items-center justify-center gap-2">
-                <Link to="/checkout">
-                  Checkout <ArrowRight size={16} />
-                </Link>
+              <Button 
+                onClick={handleCheckout}
+                className="w-full bg-artisan-clay hover:bg-artisan-clay/90 flex items-center justify-center gap-2"
+              >
+                {t('checkout')} <ArrowRight size={16} />
               </Button>
               
               <div className="mt-6">
-                <h3 className="font-medium mb-3">Payment Options</h3>
+                <h3 className="font-medium mb-3">{t('paymentOptions')}</h3>
                 <div className="flex flex-wrap gap-3">
                   <img src="https://via.placeholder.com/60x30?text=MTN+MoMo" alt="MTN MoMo" className="h-6" />
                   <img src="https://via.placeholder.com/60x30?text=Orange+Money" alt="Orange Money" className="h-6" />
@@ -240,7 +264,7 @@ const Cart = () => {
             
             <div className="mt-6">
               <Button asChild variant="outline" className="w-full">
-                <Link to="/shop">Continue Shopping</Link>
+                <Link to="/shop">{t('continueShopping')}</Link>
               </Button>
             </div>
           </div>

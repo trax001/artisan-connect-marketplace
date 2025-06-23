@@ -24,6 +24,7 @@ import Shipping from "./pages/Shipping";
 import Returns from "./pages/Returns";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import AdminDashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/about" element={<Layout><About /></Layout>} />
             <Route path="/contact" element={<Layout><Contact /></Layout>} />
             <Route path="/account" element={<Layout><Account /></Layout>} />
+            <Route path="/admin" element={<Layout><AdminDashboard /></Layout>} />
             
             {/* New routes for footer pages */}
             <Route path="/faq" element={<Layout><FAQ /></Layout>} />
