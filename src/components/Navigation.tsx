@@ -44,6 +44,9 @@ const Navigation = () => {
             <Link to="/contact" className="text-artisan-earth hover:text-artisan-clay font-medium">
               {t('contact')}
             </Link>
+            <Link to="/admin" className="text-artisan-earth hover:text-artisan-clay font-medium">
+              Admin
+            </Link>
           </nav>
 
           {/* Icons */}
@@ -163,6 +166,13 @@ const Navigation = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('account')}
+              </Link>
+              <Link 
+                to="/admin" 
+                className="text-artisan-earth hover:text-artisan-clay font-medium py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Admin
               </Link>
             </nav>
           </div>
