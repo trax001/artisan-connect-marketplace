@@ -60,7 +60,19 @@ const Navigation = () => {
               <span className="ml-1 text-xs font-medium">{language.toUpperCase()}</span>
             </Button>
             
-            <Link to="/shop" title={t('search')}>
+            <Link 
+              to="/shop" 
+              title={t('search')}
+              onClick={() => {
+                // Focus search input after navigation
+                setTimeout(() => {
+                  const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+                  if (searchInput) {
+                    searchInput.focus();
+                  }
+                }, 100);
+              }}
+            >
               <Button 
                 variant="ghost" 
                 size="icon" 
