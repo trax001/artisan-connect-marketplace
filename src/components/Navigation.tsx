@@ -60,15 +60,16 @@ const Navigation = () => {
               <span className="ml-1 text-xs font-medium">{language.toUpperCase()}</span>
             </Button>
             
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="text-artisan-forest hover:text-artisan-clay"
-              title={t('search')}
-            >
-              <Search className="h-5 w-5" />
-              <span className="sr-only">{t('search')}</span>
-            </Button>
+            <Link to="/shop" title={t('search')}>
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="text-artisan-forest hover:text-artisan-clay"
+              >
+                <Search className="h-5 w-5" />
+                <span className="sr-only">{t('search')}</span>
+              </Button>
+            </Link>
             
             <Link to="/account" title={t('account')}>
               <Button variant="ghost" size="icon" className="text-artisan-forest hover:text-artisan-clay">
